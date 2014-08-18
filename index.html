@@ -25,37 +25,13 @@
 			<h3 class="panel-bold">{{ questionCtrl.question.description }}</h3>
 		  </div>
 		  <div class="panel-body">
-		      <div class="form-group">
+		      <div class="form-group" ng-repeat="answer in questionCtrl.question.answers">
 					<div class="radio">
 						<label>
-							<input type="radio" name="answer" value="a">
-							16
+							<input type="radio" name="answer" value="{{ answer.value}}">
+							{{ answer.desc }}
 						</label>
 					</div>
-					<div class="radio">
-						<label>
-							<input type="radio" name="answer" value="b">
-							20
-						</label>
-					</div>
-					<div class="radio">
-						<label>
-							<input type="radio" name="answer" value="c">
-							25
-						</label>
-					</div>
-					<div class="radio">
-						<label>
-							<input type="radio" name="answer" value="d">
-							32
-						</label>
-					</div>
-					<div class="radio">
-						<label>
-							<input type="radio" name="answer" value="e">
-							35
-						</label>
-					</div>					
 				</div>
 		  </div>
 		  <div class="panel-footer"><button type="button" class="btn btn-primary">Submit</button></div>
