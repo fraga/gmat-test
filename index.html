@@ -22,7 +22,10 @@
 	<h1>Question - {{ questionCtrl.question.type }}</h1>
 		<div class="panel panel-default">
 		  <div class="panel-heading">
-			<h3 class="panel-bold">{{ questionCtrl.question.description }}</h3>
+			<h3 class="panel-bold">{{ questionCtrl.question.description }}
+				<span class="label label-success" ng-show="questionCtrl.answered && questionCtrl.isCorrect">Correct!</span>
+				<span class="label label-danger" ng-show="questionCtrl.answered && !questionCtrl.isCorrect">Incorrect!</span>
+			</h3>				
 		  </div>
 		  <form class="panel-body" name="myform">
 		      <div class="form-group">
