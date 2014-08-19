@@ -31,7 +31,8 @@
 					desc:"35",
 					value:"e"
 				}
-			]
+			],
+			correct: "e"
 	}];
 	
 
