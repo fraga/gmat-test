@@ -3,6 +3,7 @@
 	
 	app.controller('QuestionController', function(){
 		this.question = questions[0];
+		this.choice = '';
 		
 	});
 	
