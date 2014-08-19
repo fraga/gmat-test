@@ -35,7 +35,7 @@
 							{{ answer.desc }}
 						</label>
 					</div>
-								 <button type="button" class="btn btn-primary" ng-click="questionCtrl.verify(questionCtrl.choice, questionCtrl.question.correct)">Submit</button>
+								 <button type="button" class="btn btn-primary" ng-click="questionCtrl.verify(questionCtrl.choice, questionCtrl.question.correct)" ng-disabled="questionCtrl.answered">Submit</button>
 				</div>
 				<p><tt>choice = {{ questionCtrl.choice + ' ' + questionCtrl.answer.desc }}</tt></p>
 
