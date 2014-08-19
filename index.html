@@ -32,10 +32,13 @@
 							{{ answer.desc }}
 						</label>
 					</div>
+								 <button type="button" class="btn btn-primary" ng-click="questionCtrl.verify(questionCtrl.choice, questionCtrl.question.correct)">Submit</button>
 				</div>
-				<tt>choice = {{ questionCtrl.choice }}</tt>
+				<p><tt>choice = {{ questionCtrl.choice + ' ' + questionCtrl.answer.desc }}</tt></p>
+
 		  </form>
-		  <div class="panel-footer"><button type="button" class="btn btn-primary">Submit</button></div>
+			<div class="panel-footer" ng-show="questionCtrl.answered && questionCtrl.isCorrect"><h3>Correct!</h3></div>
+			<div class="panel-footer" ng-show="questionCtrl.answered && !questionCtrl.isCorrect"><h3>Incorrect!</h3></div>			
 		</div>
 	</div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

@@ -4,6 +4,13 @@
 	app.controller('QuestionController', function(){
 		this.question = questions[0];
 		this.choice = '';
+		this.isCorrect = false;
+		this.answered = false;
+		
+		this.verify = function(choice, correct){
+			this.isCorrect = correct === choice;
+			this.answered = true;
+		};
 		
 	});
 	
