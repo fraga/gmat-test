@@ -37,8 +37,7 @@
 					</div>
 								 <button type="button" class="btn btn-primary" ng-click="questionCtrl.verify(questionCtrl.choice, questionCtrl.question.correct)" ng-disabled="questionCtrl.answered">Submit</button>
 				</div>
-				<p><tt>choice = {{ questionCtrl.choice + ' ' + questionCtrl.answer.desc }}</tt></p>
-
+				<p><tt>choice = {{ questionCtrl.choice }}</tt></p>
 		  </form>
 			<div class="panel-footer" ng-show="questionCtrl.answered && questionCtrl.isCorrect"><h3>Correct!</h3></div>
 			<div class="panel-footer" ng-show="questionCtrl.answered && !questionCtrl.isCorrect"><h3>Incorrect!</h3></div>			
