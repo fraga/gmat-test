@@ -8,7 +8,7 @@
 		this.answered = false;
 		
 		this.verify = function(choice, correct){
-			this.isCorrect = correct === choice;
+			this.isCorrect = choice === correct;
 			this.answered = true;
 		};
 		
