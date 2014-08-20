@@ -19,7 +19,7 @@
 
 		this.nextQuestion = function() {
 			this.reset();
-			this.question = this.getQuestion();
+			this.question = this.shuffleQuestion();
 		}
 
 		this.reset = function() {
