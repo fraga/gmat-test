@@ -1,7 +1,9 @@
 (function() {
 	var app = angular.module('gmatApp', []);
 	
-	app.controller('QuestionController', function(){
+	app.controller('QuestionController', ['$http', function($http){
+		var store = this;
+		store.questions = questions;
 		
 		this.verify = function(choice, correct){
 			this.isCorrect = choice === correct;
@@ -9,7 +11,7 @@
 		};
 
 		this.shuffleQuestion = function() {
-			return questions[this.getRandomInt(0, questions.length)];
+			return store.questions[this.getRandomInt(0, store.questions.length)];
 		};
 
 		this.getRandomInt = function(min, max) {
@@ -33,8 +35,7 @@
 		this.choice = '';
 		this.isCorrect = false;
 		this.answered = false;
-		
-	});
+	}]);
 	
 	var questions = [{
 			type: "Verbal (CR)",
