@@ -8,7 +8,7 @@
 			this.answered = true;
 		};
 
-		this.getQuestion = function() {
+		this.shuffleQuestion = function() {
 			return questions[this.getRandomInt(0, questions.length)];
 		};
 
@@ -29,7 +29,7 @@
 			this.answered = false;
 		}
 
-		this.question = this.getQuestion();
+		this.question = this.shuffleQuestion();
 		this.choice = '';
 		this.isCorrect = false;
 		this.answered = false;
