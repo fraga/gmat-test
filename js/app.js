@@ -2,15 +2,37 @@
 	var app = angular.module('gmatApp', []);
 	
 	app.controller('QuestionController', function(){
-		this.question = questions[0];
-		this.choice = '';
-		this.isCorrect = false;
-		this.answered = false;
 		
 		this.verify = function(choice, correct){
 			this.isCorrect = choice === correct;
 			this.answered = true;
 		};
+
+		this.getQuestion = function() {
+			return questions[this.getRandomInt(0, questions.length)];
+		};
+
+		this.getRandomInt = function(min, max) {
+			// from: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+			return Math.floor(Math.random() * (max - min)) + min;
+		};
+
+		this.nextQuestion = function() {
+			this.reset();
+			this.question = this.getQuestion();
+		}
+
+		this.reset = function() {
+			this.question = null;
+			this.choice = '';
+			this.isCorrect = false;
+			this.answered = false;
+		}
+
+		this.question = this.getQuestion();
+		this.choice = '';
+		this.isCorrect = false;
+		this.answered = false;
 		
 	});
 	

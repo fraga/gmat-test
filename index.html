@@ -40,7 +40,7 @@
 				<p><tt>choice = {{ questionCtrl.choice }}</tt></p>
 		  </form>
 		<div class="panel-footer" ng-show="questionCtrl.answered">
-			<button type="button" class="btn btn-default btn-lg">
+			<button type="button" class="btn btn-default btn-lg" ng-click="questionCtrl.nextQuestion()">
 			  Next<span class="glyphicon glyphicon-step-forward"></span></button>
 		</div>
 		</div>
