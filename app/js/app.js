@@ -9,10 +9,7 @@
 		$http.get(url).success(function(data) {
 		  console.log(data);
 			that.questions = data;
-			that.question = that.shuffleQuestion();
-			that.choice = '';
-			that.isCorrect = false;
-			that.answered = false;
+			that.nextQuestion();
 		}).error(function(data, status, headers, config) {
 			alert('error');
 		});
@@ -20,6 +17,7 @@
 		this.verify = function(choice, correct){
 			this.isCorrect = choice === correct;
 			this.answered = true;
+			this.elapsedTime = new Date().getTime() - this.elapsedTime;
 		};
 
 		this.shuffleQuestion = function() {
@@ -33,10 +31,12 @@
 
 		this.nextQuestion = function() {
 			this.reset();
+			this.elapsedTime = new Date().getTime();
 			this.question = this.shuffleQuestion();
 		}
 
 		this.reset = function() {
+			this.elapsedTime = 0;
 			this.question = null;
 			this.choice = '';
 			this.isCorrect = false;
