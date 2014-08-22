@@ -2,8 +2,20 @@
 	var app = angular.module('gmatApp', []);
 	
 	app.controller('QuestionController', ['$http', function($http){
-		var store = this;
-		store.questions = questions;
+		var that = this;
+		//var url = 'http://gmat-test-server.herokuapp.com/public/questions.json';
+		var url = 'http://localhost:9292/app/questions.json';
+
+		$http.get(url).success(function(data) {
+		  console.log(data);
+			that.questions = data;
+			that.question = that.shuffleQuestion();
+			that.choice = '';
+			that.isCorrect = false;
+			that.answered = false;
+		}).error(function(data, status, headers, config) {
+			alert('error');
+		});
 		
 		this.verify = function(choice, correct){
 			this.isCorrect = choice === correct;
@@ -11,7 +23,7 @@
 		};
 
 		this.shuffleQuestion = function() {
-			return store.questions[this.getRandomInt(0, store.questions.length)];
+			return this.questions[this.getRandomInt(0, this.questions.length)];
 		};
 
 		this.getRandomInt = function(min, max) {
@@ -30,11 +42,6 @@
 			this.isCorrect = false;
 			this.answered = false;
 		}
-
-		this.question = this.shuffleQuestion();
-		this.choice = '';
-		this.isCorrect = false;
-		this.answered = false;
 	}]);
 	
 	var questions = [{
