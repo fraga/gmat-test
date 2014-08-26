@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add question</title>
+  
+
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular.min.js"></script>
+  
+
+  
+</head>
+<body ng-app="questionAdd">
+    <div ng-controller="QuestionController">
+    <form novalidate class="simple-form">
+      question: <input type="textarea" ng-model="question.desc" /><br />
+      answer 1: <input type="textarea" ng-model="question.answer1"/><br />
+      answer 2: <input type="textarea" ng-model="question.answer2"/><br />
+      answer 3: <input type="textarea" ng-model="question.answer3"/><br />
+      answer 4: <input type="textarea" ng-model="question.answer4"/><br />
+      answer 5: <input type="textarea" ng-model="question.answer5"/><br />
+      <button ng-click="reset()">RESET</button>
+      <button ng-click="update(user)">SAVE</button>
+    </form>
+    <pre>form = {{question | json}}</pre>
+  </div>
+
+  <script>
+    angular.module('questionAdd', [])
+      .controller('QuestionController', ['$scope', function($scope) {
+        $scope.master = {};
+
+        $scope.update = function(user) {
+          $scope.master = angular.copy(user);
+        };
+
+        $scope.reset = function() {
+          $scope.user = angular.copy($scope.master);
+        };
+
+        $scope.reset();
+      }]);
+  </script>
+</body>
+</html>
