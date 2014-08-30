@@ -25,7 +25,7 @@
 			<h3 class="panel-bold">{{ questionCtrl.question.description }}
 				<span class="label label-success" ng-show="questionCtrl.answered && questionCtrl.isCorrect">Correct!</span>
 				<span class="label label-danger" ng-show="questionCtrl.answered && !questionCtrl.isCorrect">Incorrect!</span>
-        <span class="label label-info" ng-show="questionCtrl.answered">{{ questionCtrl.elapsedTime | date: 'mm:ss' }}</span>
+        <span class="label label-info" ng-show="questionCtrl.answered">{{ elapsedTime | date: 'mm:ss' }}</span>
 			</h3>				
 		  </div>
 		  <form class="panel-body" name="myform">
