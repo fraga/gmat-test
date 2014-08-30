@@ -1,13 +1,23 @@
 (function() {
 	var app = angular.module('gmatApp', []);
-	
-	app.controller('QuestionController', ['$http', function($http){
-		var that = this;
+
+	app.factory('questionsFactory', ['$http', function($http){
+		var factory = {};
 		//var url = 'http://gmat-test-server.herokuapp.com/public/questions.json';
 		var url = 'http://localhost:9292/app/questions.json';
 
-		$http.get(url).success(function(data) {
-		  console.log(data);
+		factory.getQuestions = function() {
+			return $http.get(url);
+		}
+
+		return factory;
+	}]);
+
+	app.controller('QuestionController', ['$scope', 'questionsFactory', function($scope, questionsFactory){		
+		var that = this;
+
+		questionsFactory.getQuestions().success(function(data) {
+		  	console.log(data);
 			that.questions = data;
 			that.nextQuestion();
 		}).error(function(data, status, headers, config) {
