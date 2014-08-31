@@ -21,6 +21,7 @@
   <body ng-cloak ng-controller="QuestionController as questionCtrl">
     <div class="container">
 	<h1>Question - {{ questionCtrl.question.type }}</h1>
+	<timer interval="1000">{{ mminutes }} minutes, {{sseconds}} seconds</timer>
 		<div class="panel panel-default">
 		  <div class="panel-heading">
 			<h3 class="panel-bold">{{ questionCtrl.question.description }}
