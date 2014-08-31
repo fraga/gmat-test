@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <script type="text/javascript" src="js/angular.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/angular-timer.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -20,13 +21,15 @@
   <body ng-cloak ng-controller="QuestionController as questionCtrl">
     <div class="container">
 	<h1>Question - {{ questionCtrl.question.type }}</h1>
+	<timer interval="1000">{{ mminutes }} minutes, {{sseconds}} seconds</timer>
 		<div class="panel panel-default">
 		  <div class="panel-heading">
 			<h3 class="panel-bold">{{ questionCtrl.question.description }}
 				<span class="label label-success" ng-show="questionCtrl.answered && questionCtrl.isCorrect">Correct!</span>
 				<span class="label label-danger" ng-show="questionCtrl.answered && !questionCtrl.isCorrect">Incorrect!</span>
-        <span class="label label-info" ng-show="questionCtrl.answered">{{ elapsedTime | date: 'mm:ss' }}</span>
-			</h3>				
+        <span class="label label-info" ng-show="questionCtrl.answered">
+			<timer interval="1000">{{ mminutes }} minutes, {{sseconds}} seconds</timer>
+		</span>
 		  </div>
 		  <form class="panel-body" name="myform">
 		      <div class="form-group">

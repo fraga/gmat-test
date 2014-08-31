@@ -1,5 +1,5 @@
 (function() {
-	var app = angular.module('gmatApp', []);
+	var app = angular.module('gmatApp', ['timer']);
 
 	app.factory('questionsFactory', ['$http', function($http){
 		var factory = {};
@@ -17,7 +17,6 @@
 		var that = this;
 
 		$scope.questions = [];
-		$scope.elapsedTime = 0;
 
 		questionsFactory.getQuestions().success(function(data) {
 		  	console.log(data);
@@ -30,7 +29,7 @@
 		this.verify = function(choice, correct){
 			this.isCorrect = choice === correct;
 			this.answered = true;
-			$scope.elapsedTime = new Date().getTime() - $scope.elapsedTime;
+			$scope.$broadcast('timer-stop');
 		};
 
 		$scope.shuffleQuestion = function() {
@@ -44,12 +43,11 @@
 
 		this.nextQuestion = function() {
 			this.reset();
-			$scope.elapsedTime = new Date().getTime();
 			this.question = $scope.shuffleQuestion();
+			$scope.$broadcast('timer-start');
 		}
 
 		this.reset = function() {
-			$scope.elapsedTime = 0;
 			this.question = null;
 			this.choice = '';
 			this.isCorrect = false;
