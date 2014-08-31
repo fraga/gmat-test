@@ -17,7 +17,6 @@
 		var that = this;
 
 		$scope.questions = [];
-		$scope.elapsedTime = 0;
 
 		questionsFactory.getQuestions().success(function(data) {
 		  	console.log(data);
@@ -30,7 +29,6 @@
 		this.verify = function(choice, correct){
 			this.isCorrect = choice === correct;
 			this.answered = true;
-			$scope.elapsedTime = new Date().getTime() - $scope.elapsedTime;
 		};
 
 		$scope.shuffleQuestion = function() {
@@ -44,12 +42,10 @@
 
 		this.nextQuestion = function() {
 			this.reset();
-			$scope.elapsedTime = new Date().getTime();
 			this.question = $scope.shuffleQuestion();
 		}
 
 		this.reset = function() {
-			$scope.elapsedTime = 0;
 			this.question = null;
 			this.choice = '';
 			this.isCorrect = false;
