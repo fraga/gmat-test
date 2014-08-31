@@ -1,5 +1,5 @@
 (function() {
-	var app = angular.module('gmatApp', []);
+	var app = angular.module('gmatApp', ['timer']);
 
 	app.factory('questionsFactory', ['$http', function($http){
 		var factory = {};
