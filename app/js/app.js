@@ -44,6 +44,7 @@
 		this.nextQuestion = function() {
 			this.reset();
 			this.question = $scope.shuffleQuestion();
+			$scope.$broadcast('timer-start');
 		}
 
 		this.reset = function() {
