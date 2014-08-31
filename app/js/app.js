@@ -29,6 +29,7 @@
 		this.verify = function(choice, correct){
 			this.isCorrect = choice === correct;
 			this.answered = true;
+			$scope.$broadcast('timer-stop');
 		};
 
 		$scope.shuffleQuestion = function() {
