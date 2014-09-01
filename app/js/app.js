@@ -1,24 +1,12 @@
 (function() {
 	var app = angular.module('gmatApp', ['timer']);
 
-	app.factory('questionsFactory', ['$http', function($http){
-		var factory = {};
-		//var url = 'http://gmat-test-server.herokuapp.com/public/questions.json';
-		var url = '/app/questions.json';
-
-		factory.getQuestions = function() {
-			return $http.get(url);
-		}
-
-		return factory;
-	}]);
-
-	app.controller('QuestionController', ['$scope', 'questionsFactory', function($scope, questionsFactory){		
+	app.controller('QuestionController', ['$scope', 'questionsService', function($scope, questionsService){		
 		var that = this;
 
 		$scope.questions = [];
 
-		questionsFactory.getQuestions().success(function(data) {
+		questionsService.getQuestions().success(function(data) {
 		  	console.log(data);
 			$scope.questions = data;
 			that.nextQuestion();
