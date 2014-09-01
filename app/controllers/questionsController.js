@@ -42,5 +42,5 @@
 		}
 	}];
 
-	angular.module('gmatApp').controller('QuestionController', questionsController);
+	angular.module('gmatApp').controller('QuestionsController', questionsController);
 }());
