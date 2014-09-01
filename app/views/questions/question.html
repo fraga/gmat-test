@@ -1,0 +1,40 @@
+	<div>
+	    <form novalidate>
+			<div class="form-group">
+				<label>Question</label>
+				<input type="text" ng-model="question.type" />
+				<input type="textarea" ng-model="question.desc" />
+			</div>
+			<div class="form-group">
+				<label>Answer1</label>
+				<input type="text" ng-model="question.answer1.desc"/>
+				<input type="hidden" ng-model="question.answer1.value" value="a" />
+			</div>
+			<div class="form-group">
+				<label>Answer2</label>
+				<input type="text" ng-model="question.answer2.desc"/>
+				<input type="hidden" ng-model="question.answer2.value" value="b" />
+			</div>
+			<div class="form-group">
+				<label>Answer3</label>
+				<input type="text" ng-model="question.answer3.desc"/>
+				<input type="hidden" ng-model="question.answer3.value" value="c" />
+			</div>
+			<div class="form-group">
+				<label>Answer4</label>
+				<input type="text" ng-model="question.answer4.desc"/>
+				<input type="hidden" ng-model="question.answer4.value" value="d" />
+			</div>
+			<div class="form-group">
+				<label>Answer5</label>
+				<input type="text" ng-model="question.answer5.desc"/>
+				<input type="hidden" ng-model="question.answer5.value" value="e" />
+			</div>
+			<button ng-click="reset()">Clear fields</button>
+			<button ng-click="addQuestion(question)">Add Question</button>
+	    </form>
+	    <pre>form = {{question | json}}</pre>
+
+    	<h2>Added Question</h2>
+	    <pre>form = {{addedQuestion | json}}</pre>
+  	</div>
