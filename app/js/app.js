@@ -5,11 +5,11 @@
 		$routeProvider
 			.when('/questions', {
 				controller: 'QuestionsController',
-				templateUrl: '/app/views/questions/questions.html'
+				templateUrl: '/app/views/questions/index.html'
 			})
 			.when('/questions/new', {
 				controller: 'QuestionController',
-				templateUrl: '/app/views/questions/question.html'
+				templateUrl: '/app/views/questions/new.html'
 			})
 			.otherwise({ redirectTo: '/questions' });
 	});
